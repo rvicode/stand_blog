@@ -1,0 +1,54 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html"><h2>Stand Blog<em>.</em></h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Welcome {{ user.username }}</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{% url 'logout' %}">
+                            <button class="btn btn-danger">Log Out</button>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item active">
+                        <a href="{% url 'login' %}">
+                            <button class="btn btn-primary">Log In
+                            </button>
+                        </a>
+                    </li>|
+                    <li class="nav-item active">
+                        <a href="{% url 'singup' %}">
+                            <button class="btn btn-success">Sing Up
+                            </button>
+                        </a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active {% endif %}"
+                       href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'about_us' %}active {% endif %}"
+                       href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'all_article' %}active {% endif %}"
+                       href="{% url 'all_article' %}">All Article</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'contact_us' %}active {% endif %}"
+                       href="{% url 'contact_us' %}">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

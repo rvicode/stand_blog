@@ -1,0 +1,29 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sing Up</title>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="mt-3">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+    <hr>
+    <h4> Do you have account?</h4>
+    <a href="{% url 'login' %}"><button class="btn btn-success">login</button></a>
+
+</div>
+
+
+</body>
+</html>
