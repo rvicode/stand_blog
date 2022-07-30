@@ -32,15 +32,16 @@ class Article(models.Model):
 
 
 class Comment(models.Model):
-    username = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='comment', verbose_name='نام کاربری')
+    username = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='comment',
+                                 verbose_name='نام کاربری')
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comment', verbose_name='مقاله')
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, related_name='reply', null=True, blank=True, verbose_name='پاسخ به کامنت')
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, related_name='reply', null=True, blank=True,
+                               verbose_name='پاسخ به کامنت')
     massage = models.TextField(verbose_name='پیام')
     created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ')
 
     def __str__(self):
         return str(self.massage)
-
 
     class Meta:
         verbose_name = 'کامنت'

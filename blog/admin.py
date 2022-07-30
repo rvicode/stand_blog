@@ -5,6 +5,7 @@ from .models import Article, Category, Comment
 @admin.register(Article)
 class HomeAdmin(admin.ModelAdmin):
     list_display = ('title', 'created')
+    search_fields = ('title', 'description')
 
 
 @admin.register(Category)
