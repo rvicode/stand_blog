@@ -153,5 +153,4 @@ cython_debug/
 .idea
 .vscode
 venv
-assets
 # End of https://www.toptal.com/developers/gitignore/api/django
