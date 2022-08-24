@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.html import format_html
+
 from accounts.models import CustomUser
 
 
@@ -21,10 +23,16 @@ class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ نشر')
     update = models.DateTimeField(auto_now=True, verbose_name='تاریخ بروز رسانی')
     slug = models.SlugField(default=title)
-    image = models.ImageField(upload_to='media/blog/article', verbose_name='تصویر')
+    image = models.ImageField(upload_to='media/blog/article', verbose_name='تصویر', blank=True, null=True)
 
     def __str__(self):
         return str(self.title or '')
+
+    def show_image(self):
+        if self.image:
+            return format_html(f'<img src="{self.image.url}" height="50px" width="60px">')
+        return format_html('<h3 style="color:red;"> تصویری وجود ندارد</h3>')
+    show_image.short_description = 'تصویر'
 
     class Meta:
         verbose_name = 'مقاله'
