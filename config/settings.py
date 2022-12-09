@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'accounts',
     'home',
     'blog',
-    'post_details',
     'article_details',
     'all_article',
     'contact_us',
