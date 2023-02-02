@@ -8,7 +8,6 @@ from .forms import ContactUsForm
 class ContactUsView(generic.CreateView):
     model = ContactUs
     fields = ('username', 'number', 'subject', 'massage',)
-    print(fields)
     template_name = 'contact_us/contact_us.html'
     success_url = reverse_lazy('home')
 
