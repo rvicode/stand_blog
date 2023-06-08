@@ -22,7 +22,7 @@ This is a blog project and boilerplate to start a django project with postgresql
 First clone the project.
 
 ```bash
-git clone https://github.com/rvicode/Django_with_Docker_and_PostgreSql.git
+git clone https://github.com/rvicode/stand_blog.git
 ```
 
 Then make sure Docker is running.
